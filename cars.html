@@ -1,0 +1,19 @@
+<h1>Available Cars</h1>
+
+<div id="cars"></div>
+
+<script>
+let cars = JSON.parse(localStorage.getItem("cars") || "[]");
+
+let container = document.getElementById("cars");
+
+cars.forEach(car => {
+  container.innerHTML += `
+    <div style="margin-bottom:20px;">
+      <h3>${car.year} ${car.make} ${car.model}</h3>
+      <p>Price: $${car.price}</p>
+      <img src="${car.image}" width="200">
+    </div>
+  `;
+});
+</script>
